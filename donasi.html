@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donasi - Solider</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Solider</div>
+    <nav class="menu">
+      <a href="home.html">Beranda</a>
+      <a href="zakat.html">Zakat</a>
+      <a href="galang-dana.html">Galang Dana</a>
+      <button class="btn-login" onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Donasi Umum</h1>
+    <p>Dukung berbagai aksi sosial dan kemanusiaan bersama Solider.</p>
+  </section>
+<section class="donasi-kategori">
+  <h2>Donasi untuk Bersama Melindungi:</h2>
+  <div class="kategori-grid">
+    <div class="kategori-item">
+      <img src="https://img.icons8.com/color/64/hurricane.png" alt="Bencana Alam">
+      <p>Bencana Alam</p>
+    </div>
+    <div class="kategori-item">
+      <img src="https://img.icons8.com/color/64/baby.png" alt="Balita Sakit">
+      <p>Balita & Anak Sakit</p>
+    </div>
+    <div class="kategori-item">
+      <img src="https://img.icons8.com/color/64/heart-with-pulse.png" alt="Medis">
+      <p>Bantuan Medis</p>
+    </div>
+    <div class="kategori-item">
+      <img src="https://img.icons8.com/color/64/school.png" alt="Pendidikan">
+      <p>Bantuan Pendidikan</p>
+    </div>
+    <div class="kategori-item">
+      <img src="https://img.icons8.com/color/64/charity.png" alt="Sosial">
+      <p>Kegiatan Sosial</p>
+    </div>
+    <div class="kategori-item">
+      <img src="https://img.icons8.com/color/64/mosque.png" alt="Ibadah">
+      <p>Rumah Ibadah</p>
+    </div>
+    <div class="kategori-item">
+      <img src="https://img.icons8.com/color/64/wheelchair.png" alt="Difabel">
+      <p>Difabel</p>
+    </div>
+    <div class="kategori-item">
+      <img src="https://img.icons8.com/color/64/shield.png" alt="Asuransi">
+      <p>Asuransi</p>
+    </div>
+    <!-- Tambahkan kategori lain sesuai kebutuhan -->
+  </div>
+</section>
+
+  <section class="donasi-list">
+    <h2>Program Donasi</h2>
+    <div class="donasi-container">
+      <div class="donasi-card">
+        <img src="https://source.unsplash.com/400x250/?children" alt="Anak Sakit">
+        <h3>Donasi Balita Sakit Kanker</h3>
+        <p>Terkumpul: Rp 25.000.000</p>
+      </div>
+      <div class="donasi-card">
+        <img src="https://source.unsplash.com/400x250/?earthquake" alt="Bencana">
+        <h3>Bantuan Gempa Cianjur</h3>
+        <p>Terkumpul: Rp 40.500.000</p>
+      </div>
+      <div class="donasi-card">
+        <img src="https://source.unsplash.com/400x250/?wheelchair" alt="Kemanusiaan">
+        <h3>Donasi Kursi Roda untuk Disabilitas</h3>
+        <p>Terkumpul: Rp 9.700.000</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Solider. Bersama Kita Bantu Sesama.</p>
+  </footer>
+
+  <script>
+    function logout() {
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galang Dana - Solider</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Solider</div>
+    <nav class="menu">
+      <a href="home.html">Beranda</a>
+      <a href="zakat.html">Zakat</a>
+      <a href="donasi.html">Donasi</a>
+      <button class="btn-login" onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Galang Dana</h1>
+    <p>Buat dan dukung kampanye penggalangan dana untuk berbagai kebutuhan sosial.</p>
+  </section>
+
+  <section class="donasi-list">
+    <h2>Kampanye Galang Dana</h2>
+    <div class="donasi-container">
+      <div class="donasi-card">
+        <img src="https://source.unsplash.com/400x250/?orphanage" alt="Panti Asuhan">
+        <h3>Galang Dana Renovasi Panti Asuhan</h3>
+        <p>Terkumpul: Rp 18.000.000</p>
+      </div>
+      <div class="donasi-card">
+        <img src="https://source.unsplash.com/400x250/?medical" alt="Biaya Medis">
+        <h3>Galang Dana Biaya Operasi Anak</h3>
+        <p>Terkumpul: Rp 32.500.000</p>
+      </div>
+      <div class="donasi-card">
+        <img src="https://source.unsplash.com/400x250/?students" alt="Beasiswa">
+        <h3>Galang Dana Beasiswa Pelajar</h3>
+        <p>Terkumpul: Rp 21.000.000</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Solider. Bersama Kita Bantu Sesama.</p>
+  </footer>
+
+  <script>
+    function logout() {
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
