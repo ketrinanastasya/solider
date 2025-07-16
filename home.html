@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solider - Beranda</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Solider</div>
+    <nav class="menu">
+      <a href="zakat.html">Zakat</a>
+      <a href="galang-dana.html">Galang Dana</a>
+      <a href="donasi.html">Donasi</a>
+      <button class="btn-login" onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Selamat Datang di Solider</h1>
+    <p>Ulurkan Tanganmu, Pilih Aksi Nyata, Dukung Mereka yang Membutuhkan.</p>
+  </section>
+
+  <section class="kategori-menu">
+    <div class="menu-box">
+      <a href="zakat.html" class="menu-item">
+        <img src="https://img.icons8.com/color/96/money.png" alt="Zakat">
+        <span>Zakat</span>
+      </a>
+      <a href="galang-dana.html" class="menu-item">
+        <img src="https://img.icons8.com/color/96/conference-call.png" alt="Galang Dana">
+        <span>Galang Dana</span>
+      </a>
+      <a href="donasi.html" class="menu-item">
+        <img src="https://img.icons8.com/color/96/charity.png" alt="Donasi">
+        <span>Donasi</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="filter">
+    <label for="kategori">Filter Kategori:</label>
+    <select id="kategori">
+      <option value="semua">Semua</option>
+      <option value="zakat">Zakat</option>
+      <option value="galangdana">Galang Dana</option>
+      <option value="donasi">Donasi</option>
+    </select>
+  </section>
+
+  <section class="donasi-list">
+    <h2>Daftar Kampanye</h2>
+    <div class="donasi-container">
+      <div class="donasi-card" data-kategori="zakat">
+        <img src="https://source.unsplash.com/400x250/?education" alt="Zakat Pendidikan" />
+        <h3>Zakat Pendidikan Yatim</h3>
+        <p>Terkumpul: Rp 10.000.000</p>
+      </div>
+
+      <div class="donasi-card" data-kategori="galangdana">
+        <img src="https://source.unsplash.com/400x250/?mosque" alt="Pembangunan Masjid" />
+        <h3>Galang Dana Masjid</h3>
+        <p>Terkumpul: Rp 8.500.000</p>
+      </div>
+
+      <div class="donasi-card" data-kategori="donasi">
+        <img src="https://source.unsplash.com/400x250/?hospital" alt="Donasi Medis" />
+        <h3>Donasi Operasi Jantung</h3>
+        <p>Terkumpul: Rp 12.700.000</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Solider. Bersama Kita Bantu Sesama.</p>
+  </footer>
+
+  <script>
+    // Filter donasi berdasarkan kategori
+    const filter = document.getElementById('kategori');
+    const cards = document.querySelectorAll('.donasi-card');
+
+    filter.addEventListener('change', () => {
+      const selected = filter.value;
+      cards.forEach(card => {
+        if (selected === 'semua' || card.dataset.kategori === selected) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Fungsi logout
+    function logout() {
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

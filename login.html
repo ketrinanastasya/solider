@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Solider</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="form-body">
+  <div class="form-container">
+    <h2>Login ke Solider</h2>
+    <form onsubmit="event.preventDefault(); window.location.href='home.html';">
+      <label>Email</label>
+      <input type="email" placeholder="email@example.com" required>
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="********" required>
+
+      <label>
+        <input type="checkbox" id="togglePassword"> Tampilkan Password
+      </label>
+
+      <button type="submit">Masuk</button>
+      <p>Belum punya akun? <a href="register.html">Daftar di sini</a></p>
+    </form>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
+
+    toggle.addEventListener("change", function () {
+      password.type = this.checked ? "text" : "password";
+    });
+  </script>
+</body>
+</html>
