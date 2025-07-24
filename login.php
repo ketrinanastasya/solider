@@ -2,26 +2,31 @@
 session_start();
 include 'koneksi.php';
 
+$error_msg = '';
+
 if (isset($_POST['login'])) {
-    $email    = $_POST['email'];
+    $email    = trim($_POST['email']);
     $password = $_POST['password'];
 
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
-
-    if (mysqli_num_rows($result) === 1) {
-        $user = mysqli_fetch_assoc($result);
-
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id']   = $user['id_user'];
-            $_SESSION['user_nama'] = $user['nama_lengkap'];
-
-            header("Location: home.php");
-            exit();
-        } else {
-            echo "<script>alert('Password salah!');</script>";
-        }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error_msg = "Format email tidak valid!";
+    } elseif (empty($password)) {
+        $error_msg = "Password tidak boleh kosong!";
     } else {
-        echo "<script>alert('Email tidak ditemukan!');</script>";
+        $cek = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+        if (mysqli_num_rows($cek) === 1) {
+            $user = mysqli_fetch_assoc($cek);
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_nama'] = $user['nama_lengkap'];
+                header("Location: index.php");
+                exit();
+            } else {
+                $error_msg = "Password salah!";
+            }
+        } else {
+            $error_msg = "Email tidak ditemukan!";
+        }
     }
 }
 ?>
@@ -31,35 +36,36 @@ if (isset($_POST['login'])) {
 <head>
   <meta charset="UTF-8">
   <title>Login Solider</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
 
-<h2 style="text-align:center;">Login Akun Solider</h2>
+<div class="login-container">
+  <h2>Login ke <span>Solider</span></h2>
 
-<form method="POST">
-  <input type="email" name="email" placeholder="Email" required>
+  <?php if (!empty($error_msg)) : ?>
+    <div class="error-msg"><?php echo $error_msg; ?></div>
+  <?php endif; ?>
 
-  <input type="password" name="password" id="password" placeholder="Password" required>
+  <form method="POST" action="">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" id="password" placeholder="Password" required>
 
-  <label>
-    <input type="checkbox" onclick="togglePassword()"> Tampilkan Password
-  </label>
+    <label class="show-password">
+      <input type="checkbox" onclick="togglePassword()"> Tampilkan Password
+    </label>
 
-  <button type="submit" name="login">LOGIN</button>
-</form>
+    <button type="submit" name="login">LOGIN</button>
+  </form>
 
-<p style="text-align:center;">Belum punya akun? <a href="register.php">Daftar di sini</a></p>
+  <p><a href="forgot_password.php">Lupa password?</a></p>
+  <p>Belum punya akun? <a href="register.php">Daftar di sini</a></p>
+</div>
 
-<!-- Script untuk menampilkan / menyembunyikan password -->
 <script>
 function togglePassword() {
-  var pwd = document.getElementById("password");
-  if (pwd.type === "password") {
-    pwd.type = "text";
-  } else {
-    pwd.type = "password";
-  }
+  const pwd = document.getElementById("password");
+  pwd.type = (pwd.type === "password") ? "text" : "password";
 }
 </script>
 

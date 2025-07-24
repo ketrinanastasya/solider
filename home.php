@@ -12,78 +12,14 @@ if (!isset($_SESSION['user_id'])) {
   <meta charset="UTF-8">
   <title>Solider - Halaman Utama</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .navbar {
-      background-color: #007BFF;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 20px;
-      align-items: center;
-    }
-    .navbar .logo {
-      font-weight: bold;
-      font-size: 20px;
-    }
-    .navbar nav a, .navbar button {
-      margin-left: 15px;
-      color: white;
-      text-decoration: none;
-    }
-    .hero {
-      text-align: center;
-      background-color: #f0f4f8;
-      padding: 20px;
-    }
-    .kategori-menu {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px;
-    }
-    .menu-item {
-      text-align: center;
-      text-decoration: none;
-      color: #333;
-    }
-    .menu-item img {
-      width: 60px;
-      height: 60px;
-    }
-    .donasi-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin: 20px;
-    }
-    .donasi-card {
-      background: white;
-      padding: 10px;
-      width: 250px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    select {
-      padding: 8px;
-      margin: 10px;
-    }
-    .btn-logout {
-      background: transparent;
-      border: 1px solid white;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
 
 <header class="navbar">
   <div class="logo">Solider</div>
   <nav>
-    Halo, <?php echo $_SESSION['user_nama']; ?>
+    <a href="#" class="icon-link"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/user--v1.png" alt="User Icon"></a>
+    <span class="user-name">Halo, <?php echo $_SESSION['user_nama']; ?></span>
     <button class="btn-logout" onclick="logout()">Logout</button>
   </nav>
 </header>
@@ -109,20 +45,18 @@ if (!isset($_SESSION['user_id'])) {
 </section>
 
 <section class="donasi-list">
-  <h2 style="text-align:center;">Daftar Kampanye</h2>
+  <h2>Daftar Kampanye</h2>
   <div class="donasi-container">
     <div class="donasi-card" data-kategori="zakat">
       <img src="https://source.unsplash.com/300x200/?charity" alt="Kampanye Zakat">
       <h3>Zakat Pendidikan</h3>
       <p>Terkumpul: Rp 10.000.000</p>
     </div>
-
     <div class="donasi-card" data-kategori="galangdana">
       <img src="https://source.unsplash.com/300x200/?mosque" alt="Kampanye Galang Dana">
       <h3>Galang Dana Masjid</h3>
       <p>Terkumpul: Rp 8.500.000</p>
     </div>
-
     <div class="donasi-card" data-kategori="donasi">
       <img src="https://source.unsplash.com/300x200/?hospital" alt="Kampanye Donasi">
       <h3>Donasi Operasi Medis</h3>
@@ -130,6 +64,16 @@ if (!isset($_SESSION['user_id'])) {
     </div>
   </div>
 </section>
+
+<footer class="footer">
+  <p>Hubungi kami:</p>
+  <div class="social-icons">
+    <a href="https://instagram.com/solider_id" target="_blank"><img src="https://img.icons8.com/fluency/48/instagram-new.png"/></a>
+    <a href="https://wa.me/6281234567890" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp.png"/></a>
+    <a href="mailto:info@solider.id"><img src="https://img.icons8.com/color/48/gmail-new.png"/></a>
+    <a href="https://x.com/solider_id" target="_blank"><img src="https://img.icons8.com/color/48/twitter--v1.png"/></a>
+  </div>
+</footer>
 
 <script>
 function filterDonasi(kategori) {

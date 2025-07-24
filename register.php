@@ -1,16 +1,38 @@
 <?php
 include 'koneksi.php';
 
-if (isset($_POST['submit'])) {
-    $nama     = $_POST['nama'];
-    $email    = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$nama = "";
+$email = "";
+$error = "";
+$success = "";
 
-    mysqli_query($conn, "INSERT INTO users (nama_lengkap, email, password)
-                         VALUES ('$nama', '$email', '$password')");
+if (isset($_POST['register'])) {
+    $nama       = trim($_POST['nama']);
+    $email      = trim($_POST['email']);
+    $password   = $_POST['password'];
+    $konfirmasi = $_POST['konfirmasi'];
 
-    header("Location: login.php");
-    exit();
+    // VALIDASI
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Format email tidak valid!";
+    } elseif ($password !== $konfirmasi) {
+        $error = "Konfirmasi password tidak cocok!";
+    } else {
+        $cek = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+        if (mysqli_num_rows($cek) > 0) {
+            $error = "Email sudah terdaftar!";
+        } else {
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
+            $insert = mysqli_query($conn, "INSERT INTO users (nama_lengkap, email, password) VALUES ('$nama', '$email', '$password_hash')");
+
+            if ($insert) {
+                $success = "Registrasi berhasil! Silakan login.";
+                header("Refresh: 2; url=login.php");
+            } else {
+                $error = "Registrasi gagal. Silakan coba lagi.";
+            }
+        }
+    }
 }
 ?>
 
@@ -19,36 +41,51 @@ if (isset($_POST['submit'])) {
 <head>
   <meta charset="UTF-8">
   <title>Daftar Akun Solider</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="register.css">
+  <style>
+    .error-msg { color: red; margin-top: 10px; }
+    .success-msg { color: green; margin-top: 10px; }
+    input:invalid { border-color: red; }
+  </style>
 </head>
 <body>
 
-<h2 style="text-align:center;">Daftar Akun Solider</h2>
+<div class="register-container">
+  <h2>Daftar Akun Solider</h2>
 
-<form method="POST">
-  <input type="text" name="nama" placeholder="Nama Lengkap" required>
-  <input type="email" name="email" placeholder="Email" required>
+  <?php if ($error): ?>
+    <div class="error-msg"><?= $error ?></div>
+  <?php endif; ?>
 
-  <input type="password" name="password" id="password" placeholder="Password" required>
+  <?php if ($success): ?>
+    <div class="success-msg"><?= $success ?></div>
+  <?php endif; ?>
 
-  <label>
-    <input type="checkbox" onclick="togglePassword()"> Tampilkan Password
-  </label>
+  <form method="POST">
+    <input type="text" name="nama" placeholder="Nama Lengkap" value="<?= htmlspecialchars($nama) ?>" required>
 
-  <button type="submit" name="submit">DAFTAR</button>
-</form>
+    <input type="email" name="email" placeholder="Email" value="<?= htmlspecialchars($email) ?>" required>
 
-<p style="text-align:center;">Sudah punya akun? <a href="login.php">Login di sini</a></p>
+    <input type="password" name="password" id="password" placeholder="Password" required>
 
-<!-- Script agar password bisa ditampilkan -->
+    <input type="password" name="konfirmasi" id="konfirmasi" placeholder="Konfirmasi Password" required>
+
+    <label class="show-password">
+      <input type="checkbox" onclick="togglePassword()"> Tampilkan Password
+    </label>
+
+    <button type="submit" name="register">DAFTAR</button>
+  </form>
+
+  <p>Sudah punya akun? <a href="login.php">Login di sini</a></p>
+</div>
+
 <script>
 function togglePassword() {
   var pwd = document.getElementById("password");
-  if (pwd.type === "password") {
-    pwd.type = "text";
-  } else {
-    pwd.type = "password";
-  }
+  var konfirmasi = document.getElementById("konfirmasi");
+  pwd.type = pwd.type === "password" ? "text" : "password";
+  konfirmasi.type = konfirmasi.type === "password" ? "text" : "password";
 }
 </script>
 

@@ -1,52 +1,111 @@
-.form-body {
-  background-color: #EAF4FF;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('berbagi.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.form-container {
-  background-color: white;
-  padding: 2rem;
+.register-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
 }
 
-.form-container h2 {
+h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
+  color: #007BFF;
 }
 
-.form-container form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-container label {
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.form-container input {
-  padding: 0.7rem;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
-.form-container button {
-  margin-top: 1.5rem;
-  padding: 0.75rem;
-  background-color: #2F80ED;
-  color: white;
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007BFF;
   border: none;
+  color: white;
+  font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.form-container p {
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.show-password {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Pesan error dan sukses */
+.error-msg {
+  background-color: #ffe6e6;
+  color: #cc0000;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ffcccc;
+  font-weight: bold;
+}
+
+.success-msg {
+  background-color: #e6ffea;
+  color: #007a33;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #b2f0c0;
+  font-weight: bold;
+}
+
+/* Responsif */
+@media (max-width: 480px) {
+  .register-container {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  input, button {
+    font-size: 15px;
+  }
 }
