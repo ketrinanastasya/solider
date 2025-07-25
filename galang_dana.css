@@ -1,7 +1,71 @@
-textarea {
-  width: 100%;
-  padding: 10px;
-  resize: vertical;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #007bff;
+    padding: 1em;
+    color: white;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a.active {
+    text-decoration: underline;
+}
+
+main {
+    padding: 40px 20px;
+}
+
+.intro h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+.btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.info {
+    margin-top: 50px;
+}
+
+.info h3 {
+    color: #007bff;
+    font-size: 22px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #f1f1f1;
+    padding: 15px;
+    margin-top: 60px;
+    font-size: 14px;
+    color: #666;
 }

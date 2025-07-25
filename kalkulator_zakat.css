@@ -1,0 +1,144 @@
+/* Global Style */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #f0f8ff, #ffffff);
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Judul Halaman */
+h2 {
+  text-align: center;
+  color: #007BFF; /* Warna biru khas Solider */
+  margin-bottom: 25px;
+}
+
+/* Tabs Navigasi */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  padding: 12px 25px;
+  background: #e6e9f0;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: #007BFF;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Tab Content Area */
+.tab-content {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Form Label dan Input */
+label {
+  display: block;
+  margin: 20px 0 5px;
+  font-weight: 600;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Tombol Hitung */
+button[type="submit"] {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+.btn-bayar {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-bayar:hover {
+  background-color: #218838;
+}
+
+/* Hasil Zakat */
+.result {
+  max-width: 500px;
+  margin: 30px auto 0;
+  padding: 20px;
+  background-color: #e3f2fd;
+  border-left: 5px solid #007BFF;
+  border-radius: 10px;
+  font-size: 1.1em;
+  line-height: 1.6;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsif Mobile */
+@media (max-width: 600px) {
+  .tab-btn {
+    flex: 1 1 100%;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .tab-content, .result {
+    padding: 20px;
+  }
+}
+
+/* Animasi Fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

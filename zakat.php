@@ -1,37 +1,45 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Zakat - Solider</title>
+  <title>Solider - Zakat</title>
   <link rel="stylesheet" href="zakat.css">
 </head>
 <body>
+  <div class="container">
+    <h1>Solider - Zakat</h1>
+    <p>
+      <a href="index.php">Beranda</a>
+      <a href="donasi.php">Donasi</a>
+      <a href="zakat.php">Zakat</a>
+      <a href="galang_dana.php">Galang Dana</a>
+      <a href="logout.php">Logout</a>
+    </p>
 
-<header class="header">
-  <h1>Zakat</h1>
-</header>
+    <h2 style="color: #007bff;">Siap Menunaikan Zakat?</h2>
 
-<main class="main-content">
-  <h2>Siap Bayar Zakat?</h2>
-  <p>Hitung dan salurkan ke lembaga amil terpercaya.</p>
-
-  <div class="card-container">
-    <div class="card">
-      <img src="img/zakat_icon.png" alt="Salurkan Zakat">
-      <h3>Salurkan Zakat</h3>
-      <p>Bayar & salurkan zakat ke lembaga amil</p>
-      <a href="form_donasi.php?kategori=zakat" class="btn">Tunaikan Zakat</a>
-
+    <div class="section">
+      <p style="font-size: 3rem;">🤲</p>
+      <p>Salurkan zakatmu melalui lembaga amil terpercaya.</p>
+      <h2>Salurkan Zakat</h2>
+      <a href="form_zakat.php" class="btn">Tunaikan Zakat</a>
     </div>
 
-    <div class="card">
-      <img src="img/kalkulator_icon.png" alt="Kalkulator Zakat">
-      <h3>Kalkulator Zakat</h3>
-      <p>Hitung kewajiban zakat profesi, fitrah dan maal kamu</p>
-      <a href="kalkulator_zakat.php" class="btn btn-secondary">Hitung Sekarang</a>
+    <div class="section">
+      <p style="font-size: 3rem;">📊</p>
+      <p>Hitung kewajiban zakat profesi dan maal secara otomatis.</p>
+      <h2>Kalkulator Zakat</h2>
+      <a href="kalkulator_zakat.php" class="btn">Hitung Sekarang</a>
     </div>
+
+    <footer>&copy; 2025 Solider. Semua Hak Dilindungi.</footer>
   </div>
-</main>
-
 </body>
 </html>

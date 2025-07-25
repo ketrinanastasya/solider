@@ -31,19 +31,20 @@ if (!isset($_SESSION['user_id'])) {
 </section>
 
 <section class="kategori-menu">
-  <a href="donasi.php?kategori=zakat" class="menu-item">
+  <a href="zakat.php" class="menu-item">
     <img src="https://img.icons8.com/color/96/money.png" alt="Zakat">
     <span>Zakat</span>
   </a>
-  <a href="donasi.php?kategori=galangdana" class="menu-item">
+  <a href="galang_dana.php" class="menu-item">
     <img src="https://img.icons8.com/color/96/conference-call.png" alt="Galang Dana">
     <span>Galang Dana</span>
   </a>
-  <a href="donasi.php?kategori=donasi" class="menu-item">
+  <a href="donasi.php" class="menu-item">
     <img src="https://img.icons8.com/color/96/charity.png" alt="Donasi">
     <span>Donasi</span>
   </a>
 </section>
+
 
 <section class="donasi-list">
   <h2>Daftar Kampanye</h2>

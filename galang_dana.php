@@ -1,67 +1,48 @@
 <?php
-include 'koneksi.php';
-
-// Ambil kategori untuk dropdown
-$kategori = mysqli_query($conn, "SELECT * FROM kategori");
-
-if (isset($_POST['submit'])) {
-  $judul       = $_POST['judul'];
-  $deskripsi   = $_POST['deskripsi'];
-  $target_dana = $_POST['target_dana'];
-  $id_kategori = $_POST['id_kategori'];
-
-  // Upload gambar
-  $gambar_name = $_FILES['gambar']['name'];
-  $gambar_tmp  = $_FILES['gambar']['tmp_name'];
-  $upload_dir  = "gambar/";
-  move_uploaded_file($gambar_tmp, $upload_dir . $gambar_name);
-
-  // Simpan data kampanye ke DB
-  mysqli_query($conn, "INSERT INTO kampanye (judul, deskripsi, target_dana, terkumpul, gambar, id_kategori)
-                       VALUES ('$judul', '$deskripsi', '$target_dana', 0, '$gambar_name', '$id_kategori')");
-
-  echo "<script>alert('Kampanye berhasil dibuat!'); window.location='donasi.php';</script>";
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Galang Dana - Solider</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Galang Dana - Solider</title>
+    <link rel="stylesheet" href="galang_dana.css">
 </head>
 <body>
+    <header>
+        <h1>💖 Galang Dana</h1>
+        <nav>
+            <a href="index.php">Beranda</a>
+            <a href="zakat.php">Zakat</a>
+            <a href="galang_dana.php" class="active">Galang Dana</a>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
 
-<header>
-  <h2>Buat Kampanye Galang Dana</h2>
-</header>
+    <main>
+        <section class="intro">
+            <h2>Buat Kampanye Galang Dana Anda</h2>
+            <p>Dengan Solider, kamu bisa membuat kampanye galang dana untuk membantu yang membutuhkan.</p>
+            <a href="buat_kampanye.php" class="btn">Buat Kampanye Sekarang 🚀</a>
+        </section>
 
-<section class="form-container">
-  <form method="POST" enctype="multipart/form-data">
-    <label>Judul Kampanye:</label>
-    <input type="text" name="judul" required>
+        <section class="info">
+            <h3>📢 Mengapa Galang Dana di Solider?</h3>
+            <ul>
+                <li>✅ Mudah digunakan</li>
+                <li>✅ Aman dan terpercaya</li>
+                <li>✅ Dana cepat cair</li>
+            </ul>
+        </section>
+    </main>
 
-    <label>Deskripsi Kampanye:</label>
-    <textarea name="deskripsi" rows="5" required></textarea>
-
-    <label>Target Dana (Rp):</label>
-    <input type="number" name="target_dana" required min="1000">
-
-    <label>Kategori:</label>
-    <select name="id_kategori" required>
-      <option value="">-- Pilih Kategori --</option>
-      <?php while ($row = mysqli_fetch_assoc($kategori)) { ?>
-        <option value="<?= $row['id_kategori'] ?>"><?= $row['nama_kategori'] ?></option>
-      <?php } ?>
-    </select>
-
-    <label>Upload Gambar:</label>
-    <input type="file" name="gambar" accept="image/*" required>
-
-    <button type="submit" name="submit" class="btn">Buat Kampanye</button>
-  </form>
-</section>
-
+    <footer>
+        <p>© 2025 Solider. Semua Hak Dilindungi.</p>
+    </footer>
 </body>
 </html>
