@@ -5,20 +5,21 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <title>Solider - Halaman Utama</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
 <header class="navbar">
   <div class="logo">Solider</div>
   <nav>
-    <a href="#" class="icon-link"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/user--v1.png" alt="User Icon"></a>
+    <a href="profil.php" class="icon-link">
+      <img src="https://img.icons8.com/ios-glyphs/30/ffffff/user--v1.png" alt="User Icon">
+    </a>
     <span class="user-name">Halo, <?php echo $_SESSION['user_nama']; ?></span>
     <button class="btn-logout" onclick="logout()">Logout</button>
   </nav>
@@ -30,15 +31,15 @@ if (!isset($_SESSION['user_id'])) {
 </section>
 
 <section class="kategori-menu">
-  <a href="#" class="menu-item" onclick="filterDonasi('zakat')">
+  <a href="donasi.php?kategori=zakat" class="menu-item">
     <img src="https://img.icons8.com/color/96/money.png" alt="Zakat">
     <span>Zakat</span>
   </a>
-  <a href="#" class="menu-item" onclick="filterDonasi('galangdana')">
+  <a href="donasi.php?kategori=galangdana" class="menu-item">
     <img src="https://img.icons8.com/color/96/conference-call.png" alt="Galang Dana">
     <span>Galang Dana</span>
   </a>
-  <a href="#" class="menu-item" onclick="filterDonasi('donasi')">
+  <a href="donasi.php?kategori=donasi" class="menu-item">
     <img src="https://img.icons8.com/color/96/charity.png" alt="Donasi">
     <span>Donasi</span>
   </a>
@@ -76,17 +77,6 @@ if (!isset($_SESSION['user_id'])) {
 </footer>
 
 <script>
-function filterDonasi(kategori) {
-  const cards = document.querySelectorAll('.donasi-card');
-  cards.forEach(card => {
-    if (kategori === '' || card.dataset.kategori === kategori) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-}
-
 function logout() {
   window.location.href = 'logout.php';
 }

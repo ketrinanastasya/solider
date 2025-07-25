@@ -1,162 +1,102 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
   margin: 0;
-  padding: 0;
-}
-
-h2 {
-  text-align: center;
-  color: #1b3a57;
-}
-
-form {
-  max-width: 400px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007BFF;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-p {
-  text-align: center;
-  margin-top: 10px;
-}
-
-a {
-  color: #007BFF;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-body {
   font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  background-color: #EAF4FF;
-  color: #333;
+  background-color: #f8f9fa;
 }
 
 .navbar {
-  background-color: #2F80ED;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-}
-
-.navbar .logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.navbar .menu a {
+  background-color: #007BFF;
   color: white;
-  margin: 0 10px;
-  text-decoration: none;
+  padding: 10px 20px;
 }
 
-.navbar .btn-login {
-  background-color: white;
-  color: #2F80ED;
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav .icon-link img {
+  width: 24px;
+  margin-right: 10px;
+}
+
+.user-name {
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.btn-logout {
+  background-color: #dc3545;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 .hero {
-  background: url('https://source.unsplash.com/1600x600/?donation,charity') no-repeat center center;
-  background-size: cover;
   text-align: center;
-  padding: 5rem 2rem;
+  padding: 50px 20px;
+  background: linear-gradient(to right, #007BFF, #00c6ff);
   color: white;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  color: #1b2e4b; /* ← dari putih ke navy */
-  margin-bottom: 10px;
+.kategori-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  padding: 20px;
+  gap: 20px;
+}
+
+.menu-item {
   text-align: center;
-  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  width: 100px;
+  transition: transform 0.3s;
 }
 
-.hero p {
-  font-size: 1rem;
-  color: #2c3e50; /* ← dari putih ke abu tua */
-  text-align: center;
-  margin-bottom: 30px;
+.menu-item:hover {
+  transform: scale(1.05);
 }
 
-
-.hero .btn-donasi {
-  background-color: #2F80ED;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  color: white;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.filter {
-  padding: 2rem;
-  text-align: center;
-}
-
-.filter select {
-  padding: 0.5rem;
-  border-radius: 6px;
-  font-size: 1rem;
+.menu-item img {
+  width: 64px;
+  height: 64px;
 }
 
 .donasi-list {
-  padding: 2rem;
+  padding: 30px 20px;
   text-align: center;
 }
 
 .donasi-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
 }
 
 .donasi-card {
   background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   overflow: hidden;
-  max-width: 300px;
-  text-align: left;
+  transition: box-shadow 0.3s;
+}
+
+.donasi-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 }
 
 .donasi-card img {
@@ -165,140 +105,49 @@ body {
 }
 
 .donasi-card h3 {
-  padding: 1rem;
-  font-size: 1.2rem;
+  margin: 10px;
+  font-size: 1.2em;
 }
 
 .donasi-card p {
-  padding: 0 1rem 1rem;
-  color: #555;
+  margin: 0 10px 15px;
+  color: #28a745;
+  font-weight: bold;
 }
 
 .footer {
-  background-color: #2F80ED;
-  color: white;
+  background-color: #f1f1f1;
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-.form-body {
-  background-color: #EAF4FF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  padding: 20px;
 }
 
-.form-container {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 400px;
+.social-icons img {
+  width: 32px;
+  margin: 0 8px;
+  transition: transform 0.3s;
 }
 
-.form-container h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.form-container form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-container label {
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.form-container input {
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.form-container button {
-  margin-top: 1.5rem;
-  padding: 0.75rem;
-  background-color: #2F80ED;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.form-container p {
-  text-align: center;
-  margin-top: 1rem;
-}
-.kategori-menu {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 40px;
-}
-
-.menu-box {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.menu-item {
-  text-align: center;
-  text-decoration: none;
-  color: #1b2e4b;
-  transition: transform 0.2s;
-}
-
-.menu-item img {
-  width: 80px;
-  height: 80px;
-}
-
-.menu-item span {
-  display: block;
-  margin-top: 8px;
-  font-weight: 500;
-}
-
-.menu-item:hover {
+.social-icons img:hover {
   transform: scale(1.1);
 }
-.kategori-menu {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
 
-.menu-box {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.menu-item {
-  text-align: center;
-  text-decoration: none;
-  color: #1b2e4b;
-  transition: transform 0.2s;
-}
+  nav {
+    margin-top: 10px;
+  }
 
-.menu-item img {
-  width: 80px;
-  height: 80px;
-}
+  .hero h1 {
+    font-size: 1.8em;
+  }
 
-.menu-item span {
-  display: block;
-  margin-top: 8px;
-  font-weight: 500;
-}
-
-.menu-item:hover {
-  transform: scale(1.1);
+  .kategori-menu {
+    flex-direction: column;
+    align-items: center;
+  }
 }

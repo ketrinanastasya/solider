@@ -1,4 +1,11 @@
 <?php
+if (isset($_GET['kategori']) && $_GET['kategori'] == 'zakat') {
+    header("Location: form_donasi.php?kategori=zakat");
+    exit();
+}
+?>
+
+<?php
 include 'koneksi.php';
 
 // Ambil data kampanye donasi dari database
