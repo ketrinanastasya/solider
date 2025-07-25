@@ -1,71 +1,191 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
+/* Warna utama */
+:root {
+  --warna-utama: #007BFF;
+  --warna-sekunder: #f1f1f1;
+  --warna-aksen: #ff4081;
+}
+
+/* Header */
 header {
-    background-color: #007bff;
-    padding: 1em;
-    color: white;
+  background-color: var(--warna-utama);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 nav a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
 
-nav a.active {
-    text-decoration: underline;
+nav a:hover, nav a.active {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-main {
-    padding: 40px 20px;
+/* Intro Section */
+.intro {
+  background-color: var(--warna-sekunder);
+  text-align: center;
+  padding: 40px 20px;
 }
 
 .intro h2 {
-    font-size: 28px;
-    color: #333;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.intro p {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .btn {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 25px;
-    text-decoration: none;
-    border-radius: 8px;
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 16px;
+  background-color: var(--warna-aksen);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
 }
 
+.btn:hover {
+  background-color: #e91e63;
+}
+
+/* Info Section */
 .info {
-    margin-top: 50px;
+  padding: 30px 20px;
+  text-align: center;
 }
 
 .info h3 {
-    color: #007bff;
-    font-size: 22px;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    font-size: 18px;
+.info ul {
+  list-style: none;
+  padding: 0;
 }
 
-ul li {
-    margin: 10px 0;
+.info li {
+  margin-bottom: 8px;
+  font-size: 16px;
 }
 
+/* Kampanye Section */
+.kampanye-wrapper {
+  padding: 40px 20px;
+  background-color: #fafafa;
+}
+
+.kampanye-wrapper h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.kampanye-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kampanye-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.kampanye-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.kampanye-card p {
+  font-size: 15px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.progress {
+  background-color: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 12px;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  height: 12px;
+  background-color: var(--warna-utama);
+  width: 0%;
+  transition: width 1s ease;
+}
+
+.btn-donasi {
+  display: inline-block;
+  background-color: var(--warna-utama);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-donasi:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
 footer {
-    background-color: #f1f1f1;
-    padding: 15px;
-    margin-top: 60px;
-    font-size: 14px;
-    color: #666;
+  text-align: center;
+  padding: 20px;
+  background-color: var(--warna-utama);
+  color: white;
+  margin-top: 30px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .kampanye-card {
+    margin: 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

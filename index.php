@@ -20,7 +20,10 @@ if (!isset($_SESSION['user_id'])) {
     <a href="profil.php" class="icon-link">
       <img src="https://img.icons8.com/ios-glyphs/30/ffffff/user--v1.png" alt="User Icon">
     </a>
-    <span class="user-name">Halo, <?php echo $_SESSION['user_nama']; ?></span>
+    <span class="user-name">
+  Halo, <?php echo isset($_SESSION['user_nama']) ? htmlspecialchars($_SESSION['user_nama']) : 'Pengguna'; ?>
+</span>
+
     <button class="btn-logout" onclick="logout()">Logout</button>
   </nav>
 </header>

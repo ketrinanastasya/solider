@@ -15,8 +15,9 @@ if (isset($_POST['login'])) {
         // Cek password
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id_user'];
-            $_SESSION['nama'] = $user['nama_lengkap'];
+            $_SESSION['user_nama'] = $user['nama_lengkap']; 
             $_SESSION['email'] = $user['email'];
+
 
             header("Location: index.php");
             exit;
